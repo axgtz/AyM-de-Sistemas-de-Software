@@ -1,0 +1,11 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Osbert
+rectangle Comprar-Cuadro {
+  Osbert -- ( Realizar Oferta) : extends
+  Osbert -- ( Publicar Cuadro) : extends
+  Osbert -- ( Clasificar Cuadro) : extends
+  Osbert -- ( Generar Rporte) : extends
+}
+@enduml

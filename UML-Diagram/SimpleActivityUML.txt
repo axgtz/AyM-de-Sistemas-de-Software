@@ -1,6 +1,6 @@
 @startuml
   'Clases
-  Class Persona {
+  abstract Class Persona <<abstract>>{
     +String nombre
     -int edad
     #char genero
@@ -14,7 +14,8 @@
     virtual void hablar() =0;
   }
   Class Profesor
-  Class Interfaz
+
+  interface Interfaz
   Class Asientos
   Class Cumbias
 

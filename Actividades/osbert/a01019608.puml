@@ -1,0 +1,47 @@
+@startuml
+  class ObraArte{
+    + String descripcion
+    + char tipo
+    + String artista
+    + Vendedor O
+  }
+  abstract class Persona{
+  + String nombre
+  + String direccion
+  }
+
+  class Vendedor{
+
+  }
+
+  class Venta{
+    -float Precio de  Compra
+    +Vendedor V
+    +ObraArte O
+    +Comprador C
+    +Date fecha
+  }
+
+  class InventarioObras{
+    + int numero de obras
+  }
+
+  class Comprador{
+
+  }
+
+  InventarioObras *-- ObraArte : Almacena
+
+  ObraArte --o Vendedor : Vende
+
+  Venta *-- ObraArte : Vende
+
+  Venta *-- Comprador : Compra
+
+  Venta *-- InventarioObras : Verifica
+
+  Persona <|--Comprador
+
+  Persona <|--Vendedor
+
+@enduml
