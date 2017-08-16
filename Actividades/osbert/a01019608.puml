@@ -1,38 +1,49 @@
 @startuml
   class ObraArte{
-    + String descripcion
-    + char tipo
-    + String artista
-    + Vendedor O
+    - String descripcion
+    - char tipo
+    - String artista
+    - Vendedor V
+    -Precio de Compra OG
+    +ObraArte()
   }
   abstract class Persona{
-  + String nombre
-  + String direccion
+  # String nombre
+  # String direccion
   }
 
   class Vendedor{
-
+    +Vendedor()
   }
 
   class Venta{
     -float Precio de  Compra
-    +Vendedor V
-    +ObraArte O
-    +Comprador C
-    +Date fecha
+    -Vendedor V
+    -ObraArte O
+    -Comprador C
+    -date fecha
+    -bool realizada
+    +Venta()
+    +void GenReporte()
   }
 
   class InventarioObras{
-    + int numero de obras
+    -int numero de obras
+    -Obra Obras[]
+    +InventarioObras()
+    +alta()
+    +baja()
+    +consulta()
+    +ClasificarCuadro()
   }
 
   class Comprador{
-
+    +Comprador()
   }
 
   InventarioObras *-- ObraArte : Almacena
 
-  ObraArte --o Vendedor : Vende
+  ObraArte --* Vendedor : Tiene
 
   Venta *-- ObraArte : Vende
 
