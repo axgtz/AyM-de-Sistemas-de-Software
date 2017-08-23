@@ -15,7 +15,7 @@
   }
 
   Creator <|..CreatorA : Implementa
-  Creator -- CreatorA :  Regresa
-  Product -- CreatorA :  Regresa
+  Creator -> CreatorA :  Regresa
+  Product <-- CreatorA :  Regresa
 
 @enduml
