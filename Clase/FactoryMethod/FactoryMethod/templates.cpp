@@ -11,7 +11,7 @@
 using namespace std;
 
 
-class FactoryProduct{
+class FactoryProduct{//Debería ser singleton
 public:
     //virtual void operation() = 0; //Todos los hijos necesitan implementar operation
     template<class Fact>

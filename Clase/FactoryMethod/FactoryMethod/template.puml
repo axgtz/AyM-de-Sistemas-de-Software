@@ -1,0 +1,14 @@
+@startuml
+  class FactoryProduct {
+    +<<template>>Prod* factoryMethod()
+  }
+
+  class ProductA {
+    -ProductA()
+    +void operation()
+  }
+
+  FactoryProduct <|..ProductA : Implementa
+  FactoryProduct --> ProductA :  FactoryMethod Regresa Producto
+
+@enduml
