@@ -1,0 +1,10 @@
+@startuml
+  class Singleton <<Static>>{
+    #<<Static>>Singleton* single_instance;
+    -Singleton()
+    +<<Static>>Singleton * getInstance()
+    +void operacion()
+  }
+
+  Singleton *-> Singleton
+@enduml
