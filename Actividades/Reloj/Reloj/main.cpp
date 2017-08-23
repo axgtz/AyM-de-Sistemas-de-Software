@@ -5,6 +5,7 @@
 //
 
 #include <iostream>
+#include <time.h>
 
 using namespace std;
 
@@ -22,27 +23,22 @@ public:
         return instance;
     }
     
-    void operacion(){
-        cout << "Time"<< instance << endl;
+    void printTime(){
+        time_t t = time(0);   // get time now
+        struct tm * now = localtime( & t );
+        cout << (now->tm_year + 1900) << '-'
+        << (now->tm_mon + 1) << '-'
+        <<  now->tm_mday
+        << endl;
     }
 };
 
 Reloj* Reloj::instance = 0;
 
-
 int main(int argc, const char * argv[]) {
     
     Reloj* instance = Reloj::getInstance();
-    instance->operacion();
-    
-    Reloj* instance2 = Reloj::getInstance();
-    instance2->operacion();
-    
-    Reloj* instance3 = Reloj::getInstance();
-    instance3->operacion();
-    
-    Reloj* instance4 = Reloj::getInstance();
-    instance4->operacion();
+    instance->printTime();
     
     return 0;
 }
