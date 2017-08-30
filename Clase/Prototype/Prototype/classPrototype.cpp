@@ -63,11 +63,10 @@ public:
     void secuestra(){
         cout << "U r mine hahahahah"<< endl;}
     Personaje* clone(){
-        return this;
+        return new Villano(*this);
     }
     
 };
-
 
 class Heroe : public Personaje{
 public:
@@ -83,11 +82,11 @@ public:
     void grita(){
         cout << "Te voy a salvar bella princesa"<<endl;};
     Personaje* clone(){
-        return this;
+        return new Heroe(*this);
     }
 };
 
-
+/*
 int main(int argc, const char * argv[]) {
    
     Princesa* prin = new Princesa("Rapunzel");
@@ -107,7 +106,7 @@ int main(int argc, const char * argv[]) {
 
 
 
-
+*/
 
 
 
