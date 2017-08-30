@@ -1,0 +1,38 @@
+@startuml
+  class Personaje{
+    + string nombre
+    + int telefono
+    + Mundo* mundo
+    + string correo
+    + virtual Product* createProduct(int type)
+    + void operation2()
+  }
+
+  class Princesa{
+    + Princesa(string n) : Personaje(n)
+    + Princesa(const Princesa& p)
+    + grita()
+  }
+
+  class Villano{
+    + Villano(string n) : Villano(n)
+    + Villano(const Princesa& p)
+    + grita()
+  }
+
+  class Heroe{
+    + Heroe(string n) : Heroe(n)
+    + Heroe(const Princesa& p)
+    + grita()
+  }
+
+  class Mundo{
+    + Mundo(string mundo) : nombreMundo(mundo){}
+    + string nombreMundo;
+  }
+
+  Personaje <|..Princesa : Implementa
+  Personaje <|..Heroe : Implementa
+  Personaje <|..Villano : Implementa
+
+@enduml
