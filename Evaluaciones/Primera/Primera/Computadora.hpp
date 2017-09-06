@@ -6,16 +6,14 @@
 #define Computadora_hpp
 
 #include <iostream>
+#include "Menu.hpp"
 
 using namespace std;
 
 class Computadora{
-private:
-    Computadora();
-    string modelo;
-    
+protected:
+    Computadora(){};
 public:
-    string getModelo();
 
     virtual Computadora* clone() = 0;
 
@@ -28,21 +26,10 @@ public:
     static SubClase* crearComputadora(){
         SubClase* finalComp = new SubClase;
         
-        finalComp->modelo;
-        
-        finalComp->seleccionComponentes();
-        finalComp->ensambladoComponentes();
-        finalComp->instalacionYConfigSoft();
-        finalComp->empaquetadoComputador();
-        
         return finalComp;
     }
 
 };
-
-string Computadora::getModelo(){
-    return modelo;
-}
 
 template <class SubClase>
 class ClonComputadora : public Computadora{
@@ -51,15 +38,12 @@ public:
         return new SubClase(dynamic_cast<SubClase&>(*this));
     }
 };
-/*
-class FactoryComputadora{
-public:
-    };*/
 
 class Desktop : public ClonComputadora<Desktop>{
 protected:
-    Desktop();
+    Desktop(){};
 public:
+    friend Computadora;
     void seleccionComponentes(){
         cout << "Desktop: Seleccionando componentes" << endl;
     }
@@ -78,8 +62,9 @@ public:
 
 class Laptop : public ClonComputadora<Laptop>{
 protected:
-    Laptop();
+    Laptop(){};
 public:
+    friend Computadora;
     void seleccionComponentes(){
         cout << "Laptop: Seleccionando componentes" << endl;
     }
@@ -96,8 +81,10 @@ public:
 
 class Netbook : public ClonComputadora<Netbook>{
 protected:
-    Netbook();
+    Netbook(){};
 public:
+    friend Computadora;
+
     void seleccionComponentes(){
         cout << "Netbook: Seleccionando componentes" << endl;
     }
@@ -114,8 +101,10 @@ public:
 
 class Tablet : public ClonComputadora<Tablet>{
 protected:
-    Tablet();
+    Tablet(){};
 public:
+    friend Computadora;
+
     void seleccionComponentes(){
         cout << "Tablet: Seleccionando componentes" << endl;
     }
@@ -132,8 +121,10 @@ public:
 
 class ServerRack : public ClonComputadora<ServerRack>{
 protected:
-    ServerRack();
+    ServerRack(){};
 public:
+    friend Computadora;
+
     void seleccionComponentes(){
         cout << "ServerRack: Seleccionando componentes" << endl;
     }
@@ -150,8 +141,10 @@ public:
 
 class ServerTower : public ClonComputadora<ServerTower>{
 protected:
-    ServerTower();
+    ServerTower(){};
 public:
+    friend Computadora;
+    
     void seleccionComponentes(){
         cout << "ServerTower: Seleccionando componentes" << endl;
     }

@@ -1,28 +1,16 @@
 //  Created by Alex Gutz on 9/6/17.
 //  Copyright © 2017 Alejandro Gutierrez. All rights reserved. A01019608
+#include "Menu.hpp"
 
-#include "Computadora.hpp"
-
-class Menu{
-public:
-    Computadora* crearComputadoras(int tipo){
-        Computadora* d = Computadora::crearComputadora<Desktop>();
-        return d;
-        /*switch (tipo) {
-            case 1:
-                break;
-            case 2:
-                Computadora* l = FactoryComputadora::crearComputadora<Laptop>();
-                break;
-            default:
-                break;
-        }*/
-    }
-};
 int main(int argc, const char * argv[]) {
+    //1-Desktop, 2-Laptop, 3-Netbook, 4-Tablet, 5-ServerRack, 6-ServerTower
     Menu m;
+    
+    //
     Computadora* c = m.crearComputadoras(1);
     c->empaquetadoComputador();
+    
+    
     
     return 0;
 }
