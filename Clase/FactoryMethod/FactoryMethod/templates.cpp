@@ -21,8 +21,8 @@ public:
     }
 };
 
-class ProdA : public FactoryProduct {
-private:
+class ProdA : public FactoryProduct{
+protected:
     ProdA(); //De esta forma la creacion es delegada al factory product y no se puede crear el producto A
 public:
     void operation(){
@@ -34,6 +34,6 @@ int main(int argc, const char * argv[]) {
     //Instanciar Producto A
     FactoryProduct* p = new FactoryProduct;
     ProdA * a = p->factoryMethod<ProdA>();//Es como crear un vector y le dices que producto especifico quiere crear
-    
+    a->operation();
     return 0;
 }

@@ -44,7 +44,7 @@ public:
     }
 };
 
-/*
+
 int main(int argc, const char * argv[]) {
     //Creator debería ser singleton y creator concretos(creatorA) con constructor privado
     Creator* c = new CreatorA;
@@ -55,4 +55,4 @@ int main(int argc, const char * argv[]) {
     delete c;
     
     return 0;
-}*/
+}
