@@ -6,7 +6,6 @@
 #define Computadora_hpp
 
 #include <iostream>
-#include "Menu.hpp"
 
 using namespace std;
 
@@ -22,6 +21,7 @@ public:
     virtual void instalacionYConfigSoft() = 0;
     virtual void empaquetadoComputador() = 0;
     
+    //Fabrica
     template<class SubClase>
     static SubClase* crearComputadora(){
         SubClase* finalComp = new SubClase;
@@ -34,7 +34,7 @@ public:
 template <class SubClase>
 class ClonComputadora : public Computadora{
 public:
-    virtual Computadora* clone(){
+    Computadora* clone(){
         return new SubClase(dynamic_cast<SubClase&>(*this));
     }
 };

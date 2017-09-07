@@ -1,0 +1,75 @@
+@startuml
+  class Computadora{
+    # Computadora()
+    + virtual static Computadora* crearComputadoras()
+    + void seleccionComponentes();
+    + void ensambladoComponentes();
+    + void instalacionYConfigSoft();
+    + void empaquetadoComputador();
+  }
+  class ClonComputadora{
+   + template<class Subclase> Computadora* clone()
+   }
+
+  class Desktop{
+  #Desktop()
+  + void seleccionComponentes();
+  + void ensambladoComponentes();
+  + void instalacionYConfigSoft();
+  + void empaquetadoComputador();
+  }
+
+  class Laptop{
+  # Laptop()
+  + void seleccionComponentes();
+  + void ensambladoComponentes();
+  + void instalacionYConfigSoft();
+  + void empaquetadoComputador();
+  }
+
+  class Tablet{
+  # Tablet()
+  + void seleccionComponentes();
+  + void ensambladoComponentes();
+  + void instalacionYConfigSoft();
+  + void empaquetadoComputador();
+  }
+
+  class Netbook{
+  # Netbook()
+  + void seleccionComponentes();
+  + void ensambladoComponentes();
+  + void instalacionYConfigSoft();
+  + void empaquetadoComputador();
+  }
+
+  class ServerRack{
+  # ServerRack()
+  + void seleccionComponentes();
+  + void ensambladoComponentes();
+  + void instalacionYConfigSoft();
+  + void empaquetadoComputador();
+  }
+
+  class ServerTower{
+  # ServerTower()
+  + void seleccionComponentes();
+  + void ensambladoComponentes();
+  + void instalacionYConfigSoft();
+  + void empaquetadoComputador();
+  }
+
+  class Menu{
+  +static Computadora* crearComputadoras(int tipo)
+  }
+
+  Menu --> Computadora :  Menu Regresa Computadora
+  Computadora <-ClonComputadora : Implementa
+  ClonComputadora <|-- Desktop : Implementa
+  ClonComputadora <|-- Laptop : Implementa
+  ClonComputadora <|-- Netbook : Implementa
+  ClonComputadora <|-- Tablet : Implementa
+  ClonComputadora <|-- ServerRack : Implementa
+  ClonComputadora <|-- ServerTower : Implementa
+
+@enduml
