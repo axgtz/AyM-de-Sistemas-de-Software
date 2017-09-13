@@ -10,3 +10,9 @@
 *.xcscheme
 
 *.plist
+*.opendb
+*.db
+*.filters
+*.sln
+*.vcxproj
+*.suo
