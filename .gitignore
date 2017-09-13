@@ -16,3 +16,9 @@
 *.sln
 *.vcxproj
 *.suo
+*.pdb
+*.tlog
+*.idb
+*.ilk
+*.log
+*.obj
