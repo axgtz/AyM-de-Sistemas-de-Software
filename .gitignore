@@ -22,3 +22,10 @@
 *.ilk
 *.log
 *.obj
+/Java/Basics/nbproject/private/
+/Java/Basics/build/
+*.properties
+
+*.xml
+
+*.mf
