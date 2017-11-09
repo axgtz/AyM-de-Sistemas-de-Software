@@ -1,0 +1,119 @@
+@startuml
+  class Alumno{
+    - String nombre
+    - String apellido
+    - String matricula
+    - String carrera
+    - String estado_procedencia
+    - String disciplina_deportiva
+    - String mail_tutor
+    - String estatus
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class Habitacion{
+    - Int No_habitacion
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class Calificaciones{
+    - Int id_periodo
+    - Int id_materia
+    - Float calificacion
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class PerfilMedico{
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class PerfilPsicologico{
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class RubricaDeEvaluacion{
+    - Int id_evaluacion
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class Prefectos{
+    - String nombre
+    - String apellido
+    - String nomina
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class Actividades{
+    - fecha_hora
+    - Int id_actividad
+    - String Descripcion
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  abstract class Reporte{
+    # Int id_reporte
+    # Fecha_Hora fecha_hora
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class HorasEntrada{
+    - Int id_reporte_entrada
+  }
+
+  class Ausencias{
+    - String justificacion
+    - Int id_reporte_ausencia
+  }
+
+  class Visitas{
+    - String nombre_visitante
+    - Int id_reporte_visitas
+  }
+
+  class Indisciplina{
+    - String motivo
+    - Int id_reporte_indisciplina
+  }
+
+  Alumno <.. Calificaciones : obtiene
+
+  Alumno <.. Reporte : tiene
+
+  Reporte <|--  Visitas
+
+  Reporte <|--  Ausencias
+
+  Reporte <|--  Indisciplina
+
+  Reporte <|--  HorasEntrada : hereda
+
+  Alumno <.. PerfilPsicologico : tiene
+
+  Alumno <.. PerfilMedico : tiene
+
+  Alumno o-- Habitacion : habita
+
+  Alumno <.. RubricaDeEvaluacion : es evaluado
+
+  Prefectos -->  RubricaDeEvaluacion : Escriben
+
+  Prefectos -->  Actividades : Realizan
+@enduml

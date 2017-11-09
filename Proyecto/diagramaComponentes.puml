@@ -1,0 +1,16 @@
+@startuml
+[Alta Alumno]
+[Alta Prefecto]
+[Alta Habitacion]
+
+database "MySQL" {
+  frame "Residencias" {
+    [Alumno]
+  }
+}
+
+[Second Component]
+DataAccess - [First Component]
+[First Component] ..> HTTP : use
+
+@enduml
