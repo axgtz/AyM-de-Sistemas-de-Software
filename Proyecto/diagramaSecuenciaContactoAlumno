@@ -1,0 +1,19 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Seleccionar Alumno a contactar
+activate Interface
+
+Interface -> Interface: Anotar razón a contactar
+
+Interface -> Servidor: Buscar existencia de alumno e información de contacto
+activate Servidor
+
+Servidor --> Interface: Regresar elementos encontrados
+
+Interface -> Servidor: Enviar mensaje a alumno
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

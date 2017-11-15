@@ -1,0 +1,21 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Escoger tipo de registro y alumno
+activate Interface
+
+Interface -> Servidor: Buscar existencia de alumno y registro
+activate Servidor
+
+Servidor --> Interface: Regresar elementos encontrados
+
+Interface --> Usuario: Respuesta(Verdadero)
+
+Usuario -> Interface: Ingresar campos requeridos
+
+Interface -> Servidor: Registrar Información
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

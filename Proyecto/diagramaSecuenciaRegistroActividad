@@ -1,0 +1,19 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Ingresar nombre y descripción de actividad
+activate Interface
+
+Interface -> Interface: Seleccionar prefectos para actividad
+
+Interface -> Servidor: Buscar existencia de prefecto
+activate Servidor
+
+Servidor --> Interface: Regresar elementos encontrados
+
+Interface -> Servidor: Registrar información
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

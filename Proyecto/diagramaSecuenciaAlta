@@ -1,0 +1,15 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Seleccionar Alta Deseada
+activate Interface
+
+Interface -> Interface: Ingesar Campos Requeridos
+activate Servidor
+
+Interface -> Servidor: Enviar Petición
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

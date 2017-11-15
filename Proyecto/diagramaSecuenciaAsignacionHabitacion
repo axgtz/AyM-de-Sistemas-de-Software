@@ -1,0 +1,17 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Seleccionar Alumno y Habitación Deseada
+activate Interface
+
+Interface -> Servidor: Buscar existencia de alumno y habitación
+activate Servidor
+
+Servidor --> Interface: Regresar elementos encontrados
+
+Interface -> Servidor: Asignar alumno a habitación
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

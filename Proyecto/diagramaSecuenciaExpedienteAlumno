@@ -1,0 +1,17 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Seleccionar Alumno
+activate Interface
+
+Interface -> Servidor: Buscar existencia de alumno
+activate Servidor
+
+Servidor --> Interface: Regresar elementos encontrados
+
+Interface -> Servidor: Seleccionar reporte a revisar
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

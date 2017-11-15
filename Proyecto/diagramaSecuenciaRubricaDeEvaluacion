@@ -1,0 +1,14 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Seleccionar Prefecto Responsable
+activate Interface
+
+Interface -> Interface: Completar ponderaciones de la rubrica
+
+Interface -> Servidor: Registrar información
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml

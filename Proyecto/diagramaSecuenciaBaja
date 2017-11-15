@@ -1,0 +1,17 @@
+@startuml
+participant Usuario
+
+Usuario -> Interface: Seleccionar Baja Deseada
+activate Interface
+
+Interface -> Servidor: Seleccionar información a dar de baja
+activate Servidor
+
+Servidor --> Interface: Regresar elementos encontrados
+
+Interface -> Servidor: Dar  de baja elemento seleccionado
+
+Servidor --> Interface: Respuesta(Verdadero)
+
+Interface --> Usuario: Respuesta(Verdadero)
+@enduml
