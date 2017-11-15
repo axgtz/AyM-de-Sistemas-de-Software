@@ -1,21 +1,22 @@
 @startuml
-participant Usuario
-
-Usuario -> Interface: Escoger tipo de registro y alumno
+actor Usuario
+Usuario -> Interface: buscarAlumno()
 activate Interface
 
-Interface -> Servidor: Buscar existencia de alumno y registro
+Interface -> Servidor: buscarAlumno()
 activate Servidor
 
-Servidor --> Interface: Regresar elementos encontrados
+Servidor --> Interface: String - Nombre Alumno
+deactivate Servidor
+Interface --> Usuario: String - Nombre Alumno
+deactivate Interface
 
-Interface --> Usuario: Respuesta(Verdadero)
 
-Usuario -> Interface: Ingresar campos requeridos
-
-Interface -> Servidor: Registrar Información
-
-Servidor --> Interface: Respuesta(Verdadero)
-
-Interface --> Usuario: Respuesta(Verdadero)
+Usuario -> Interface: alta()
+activate Interface
+Interface -> Servidor: alta()
+activate Servidor
+Servidor --> Interface: Verdadero
+deactivate Servidor
+Interface --> Usuario: Verdadero
 @enduml

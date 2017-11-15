@@ -1,19 +1,22 @@
 @startuml
-participant Usuario
+actor Usuario
 
-Usuario -> Interface: Ingresar nombre y descripción de actividad
+Usuario -> Interface: buscarPrefecto()
 activate Interface
-
-Interface -> Interface: Seleccionar prefectos para actividad
-
-Interface -> Servidor: Buscar existencia de prefecto
+database Servidor
 activate Servidor
+Interface -> Servidor: buscarPrefecto()
 
-Servidor --> Interface: Regresar elementos encontrados
+Servidor --> Interface: String - Nombre Prefecto
+deactivate Servidor
+Interface --> Usuario: String - Nombre Prefecto
+deactivate Interface
 
-Interface -> Servidor: Registrar información
+Usuario -> Interface: alta()
+activate Interface
+Interface -> Servidor: alta()
+activate Servidor
+Servidor --> Interface: Verdadero
 
-Servidor --> Interface: Respuesta(Verdadero)
-
-Interface --> Usuario: Respuesta(Verdadero)
+Interface --> Usuario: Verdadero
 @enduml

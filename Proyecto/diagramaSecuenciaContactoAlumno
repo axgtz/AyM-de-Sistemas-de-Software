@@ -1,19 +1,22 @@
 @startuml
-participant Usuario
+actor Usuario
 
-Usuario -> Interface: Seleccionar Alumno a contactar
+Usuario -> Interface: buscarAlumno()
+activate Interface
+database Servidor
+Interface -> Servidor: buscarAlumno()
+
+Servidor --> Interface: String - Nombre Alumno
+deactivate Servidor
+Interface --> Usuario: String - Nombre Alumno
+deactivate Interface
+
+Usuario -> Interface: contactarAlumno()
 activate Interface
 
-Interface -> Interface: Anotar razón a contactar
+Interface -> Servidor: contactarAlumno()
 
-Interface -> Servidor: Buscar existencia de alumno e información de contacto
-activate Servidor
+Servidor --> Interface: Verdadero
 
-Servidor --> Interface: Regresar elementos encontrados
-
-Interface -> Servidor: Enviar mensaje a alumno
-
-Servidor --> Interface: Respuesta(Verdadero)
-
-Interface --> Usuario: Respuesta(Verdadero)
+Interface --> Usuario: Verdadero
 @enduml

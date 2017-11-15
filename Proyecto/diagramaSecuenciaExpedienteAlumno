@@ -1,17 +1,26 @@
 @startuml
-participant Usuario
+actor Usuario
 
-Usuario -> Interface: Seleccionar Alumno
+Usuario -> Interface: buscarAlumno()
 activate Interface
-
-Interface -> Servidor: Buscar existencia de alumno
 activate Servidor
 
-Servidor --> Interface: Regresar elementos encontrados
+Interface -> Servidor: buscarAlumno()
 
-Interface -> Servidor: Seleccionar reporte a revisar
+Servidor --> Interface: String - Nombre Alumno
+deactivate Servidor
+Interface --> Usuario: String - Nombre Alumno
+deactivate Interface
 
-Servidor --> Interface: Respuesta(Verdadero)
+Usuario -> Interface: consulta()
+activate Interface
+database Servidor
+activate Servidor
+Interface -> Servidor: consulta()
 
-Interface --> Usuario: Respuesta(Verdadero)
+Servidor --> Interface: String - Expediente
+deactivate Servidor
+Interface --> Usuario: String - Expediente
+deactivate Interface
+
 @enduml

@@ -1,17 +1,38 @@
 @startuml
-participant Usuario
+actor Usuario
 
-Usuario -> Interface: Seleccionar Alumno y Habitación Deseada
+
+Usuario -> Interface: buscarHabitacion()
 activate Interface
-
-Interface -> Servidor: Buscar existencia de alumno y habitación
+database Servidor
+Interface -> Servidor: buscarHabitacion()
 activate Servidor
 
-Servidor --> Interface: Regresar elementos encontrados
+Servidor --> Interface: String - Habitacion
+deactivate Servidor
+Interface --> Usuario: String - Habitacion
+deactivate Interface
 
-Interface -> Servidor: Asignar alumno a habitación
 
-Servidor --> Interface: Respuesta(Verdadero)
+Usuario -> Interface: buscarAlumno()
+activate Interface
 
-Interface --> Usuario: Respuesta(Verdadero)
+Interface -> Servidor: buscarAlumno()
+activate Servidor
+
+Servidor --> Interface: String - Nombre Alumno
+deactivate Servidor
+Interface --> Usuario: String - Nombre Alumno
+deactivate Interface
+
+
+Usuario -> Interface: asignarHabitacion()
+activate Interface
+
+Interface -> Servidor: asignarHabitacion()
+activate Servidor
+
+Servidor --> Interface: Verdadero
+
+Interface --> Usuario: Verdadero
 @enduml

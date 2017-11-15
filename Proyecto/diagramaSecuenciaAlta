@@ -1,15 +1,15 @@
 @startuml
-participant Usuario
+actor Usuario
 
-Usuario -> Interface: Seleccionar Alta Deseada
+Usuario -> Interface: alta()
 activate Interface
-
-Interface -> Interface: Ingesar Campos Requeridos
+database Servidor
+Interface -> Servidor: alta()
 activate Servidor
 
-Interface -> Servidor: Enviar Petición
+Servidor --> Interface: Verdadero
+deactivate Servidor
+Interface --> Usuario: Verdadero
+deactivate Interface
 
-Servidor --> Interface: Respuesta(Verdadero)
-
-Interface --> Usuario: Respuesta(Verdadero)
 @enduml

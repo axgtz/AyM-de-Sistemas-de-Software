@@ -11,6 +11,9 @@
     + alta()
     + baja()
     + consulta()
+    + buscarAlumno()
+    + asignarHabitacion()
+    + contactarAlumno()
   }
 
   class Habitacion{
@@ -18,6 +21,7 @@
     + alta()
     + baja()
     + consulta()
+    + buscarHabitacion()
   }
 
   class Calificaciones{
@@ -55,6 +59,7 @@
     + alta()
     + baja()
     + consulta()
+    + buscarPrefecto()
   }
 
   class Actividades{

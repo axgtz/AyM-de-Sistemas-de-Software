@@ -1,14 +1,34 @@
 @startuml
-participant Usuario
+actor Usuario
 
-Usuario -> Interface: Seleccionar Prefecto Responsable
+Usuario -> Interface: buscarPrefecto()
 activate Interface
+database Servidor
+activate Servidor
+Interface -> Servidor: buscarPrefecto()
 
-Interface -> Interface: Completar ponderaciones de la rubrica
+Servidor --> Interface: String - Nombre Prefecto
+deactivate Servidor
+Interface --> Usuario: String - Nombre Prefecto
+deactivate Interface
 
-Interface -> Servidor: Registrar información
 
-Servidor --> Interface: Respuesta(Verdadero)
+Usuario -> Interface: buscarAlumno()
+activate Interface
+activate Servidor
 
-Interface --> Usuario: Respuesta(Verdadero)
+Interface -> Servidor: buscarAlumno()
+
+Servidor --> Interface: String - Nombre Alumno
+deactivate Servidor
+Interface --> Usuario: String - Nombre Alumno
+deactivate Interface
+
+Usuario -> Interface: alta()
+activate Interface
+Interface -> Servidor: alta()
+activate Servidor
+Servidor --> Interface: Verdadero
+
+Interface --> Usuario: Verdadero
 @enduml
