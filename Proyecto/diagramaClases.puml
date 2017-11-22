@@ -1,5 +1,6 @@
 @startuml
   class Alumno{
+    - Int idAlumno
     - String nombre
     - String apellido
     - String matricula
@@ -11,22 +12,20 @@
     + alta()
     + baja()
     + consulta()
-    + buscarAlumno()
     + asignarHabitacion()
     + contactarAlumno()
   }
 
   class Habitacion{
     - Int No_habitacion
+    - Int capacidad
     + alta()
     + baja()
     + consulta()
-    + buscarHabitacion()
   }
 
   class Calificaciones{
-    - Int id_periodo
-    - Int id_materia
+    - String id_materia
     - Float calificacion
     + alta()
     + baja()
@@ -34,19 +33,35 @@
   }
 
   class PerfilMedico{
+    - Int idPerfilMed
+    - mediumBlob Archivo
+    - String comentarios
     + alta()
     + baja()
     + consulta()
   }
 
   class PerfilPsicologico{
+    - Int idPerfilPsic
+    - mediumBlob Archivo
+    - String comentarios
     + alta()
     + baja()
     + consulta()
   }
 
   class RubricaDeEvaluacion{
-    - Int id_evaluacion
+    - Int idRubrica
+    - Fecha_Hora fecha_hora
+    + alta()
+    + baja()
+    + consulta()
+  }
+
+  class RubricaDeEvaluacionConcepto{
+    - Int idConcepto
+    - String descripcion
+    - Int porcentaje
     + alta()
     + baja()
     + consulta()
@@ -56,23 +71,23 @@
     - String nombre
     - String apellido
     - String nomina
+    - String email
     + alta()
     + baja()
     + consulta()
-    + buscarPrefecto()
   }
 
   class Actividades{
-    - fecha_hora
+    - Fecha_Hora fecha_hora
     - Int id_actividad
     - String Descripcion
+    - Bool obligatorio
     + alta()
     + baja()
     + consulta()
   }
 
   abstract class Reporte{
-    # Int id_reporte
     # Fecha_Hora fecha_hora
     + alta()
     + baja()
@@ -81,10 +96,12 @@
 
   class HorasEntrada{
     - Int id_reporte_entrada
+    - String comentarios
   }
 
   class Ausencias{
-    - String justificacion
+    - Bool justificada
+    - String motivo
     - Int id_reporte_ausencia
   }
 
@@ -95,6 +112,7 @@
 
   class Indisciplina{
     - String motivo
+    - String comentarios
     - Int id_reporte_indisciplina
   }
 
@@ -121,4 +139,6 @@
   Prefectos -->  RubricaDeEvaluacion : Escriben
 
   Prefectos -->  Actividades : Realizan
+
+  RubricaDeEvaluacion <.. RubricaDeEvaluacionConcepto : compuesta
 @enduml
