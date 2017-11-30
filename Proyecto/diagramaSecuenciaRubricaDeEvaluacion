@@ -1,34 +1,19 @@
 @startuml
 actor Usuario
 
-Usuario -> Interface: buscarPrefecto()
-activate Interface
-database Servidor
-activate Servidor
-Interface -> Servidor: buscarPrefecto()
+Usuario -> Alumno: consultar()
+activate Alumno
+Alumno -> Usuario: Arreglo - Alumnos
+deactivate Alumno
 
-Servidor --> Interface: String - Nombre Prefecto
-deactivate Servidor
-Interface --> Usuario: String - Nombre Prefecto
-deactivate Interface
+Usuario -> RubricaDeEvaluacion: alta()
+activate RubricaDeEvaluacion
+RubricaDeEvaluacion -> RubricaDeEvaluacionConcepto: alta()
+activate RubricaDeEvaluacionConcepto
+RubricaDeEvaluacionConcepto -> RubricaDeEvaluacionConcepto: alta()
+
+RubricaDeEvaluacionConcepto -> RubricaDeEvaluacion: Verdadero
+RubricaDeEvaluacion -> Usuario: Verdadero
 
 
-Usuario -> Interface: buscarAlumno()
-activate Interface
-activate Servidor
-
-Interface -> Servidor: buscarAlumno()
-
-Servidor --> Interface: String - Nombre Alumno
-deactivate Servidor
-Interface --> Usuario: String - Nombre Alumno
-deactivate Interface
-
-Usuario -> Interface: alta()
-activate Interface
-Interface -> Servidor: alta()
-activate Servidor
-Servidor --> Interface: Verdadero
-
-Interface --> Usuario: Verdadero
 @enduml

@@ -1,22 +1,13 @@
 @startuml
 actor Usuario
-Usuario -> Interface: buscarAlumno()
-activate Interface
+Usuario -> Alumno: consulta()
+activate Alumno
+Alumno -> Usuario: Arreglo - Alumnos
+deactivate Alumno
 
-Interface -> Servidor: buscarAlumno()
-activate Servidor
+Usuario -> HorasAusenciasVisitas: alta()
+activate HorasAusenciasVisitas
+HorasAusenciasVisitas -> Usuario: Verdadero
+deactivate HorasAusenciasVisitas
 
-Servidor --> Interface: String - Nombre Alumno
-deactivate Servidor
-Interface --> Usuario: String - Nombre Alumno
-deactivate Interface
-
-
-Usuario -> Interface: alta()
-activate Interface
-Interface -> Servidor: alta()
-activate Servidor
-Servidor --> Interface: Verdadero
-deactivate Servidor
-Interface --> Usuario: Verdadero
 @enduml

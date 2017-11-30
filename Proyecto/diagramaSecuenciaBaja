@@ -1,15 +1,15 @@
 @startuml
 actor Usuario
 
-Usuario -> Interface: baja()
-activate Interface
-database Servidor
-Interface -> Servidor: baja()
-activate Servidor
+Usuario -> Alumno: consulta()
+activate Alumno
+Alumno -> Usuario: String Alumnos
+deactivate Alumno
 
-Servidor --> Interface: Verdadero
-deactivate Servidor
-Interface --> Usuario: Verdadero
-deactivate Interface
+Usuario -> Alumno: baja()
+activate Alumno
+Alumno -> Usuario: Verdadero
+deactivate Alumno
+
 
 @enduml

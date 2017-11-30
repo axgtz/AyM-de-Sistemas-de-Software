@@ -1,26 +1,14 @@
 @startuml
 actor Usuario
 
-Usuario -> Interface: buscarAlumno()
-activate Interface
-activate Servidor
+Usuario -> Alumno: buscarAlumno()
+activate Alumno
+Alumno -> Usuario: Arreglo - Alumnos
+deactivate Alumno
 
-Interface -> Servidor: buscarAlumno()
-
-Servidor --> Interface: String - Nombre Alumno
-deactivate Servidor
-Interface --> Usuario: String - Nombre Alumno
-deactivate Interface
-
-Usuario -> Interface: consulta()
-activate Interface
-database Servidor
-activate Servidor
-Interface -> Servidor: consulta()
-
-Servidor --> Interface: String - Expediente
-deactivate Servidor
-Interface --> Usuario: String - Expediente
-deactivate Interface
+Usuario -> Calificaciones: alta()
+activate Calificaciones
+Calificaciones -> Usuario: Verdadero
+deactivate Calificaciones
 
 @enduml

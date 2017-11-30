@@ -1,15 +1,10 @@
 @startuml
 actor Usuario
 
-Usuario -> Interface: alta()
-activate Interface
-database Servidor
-Interface -> Servidor: alta()
-activate Servidor
+Usuario -> Alumno: alta()
+activate Alumno
 
-Servidor --> Interface: Verdadero
-deactivate Servidor
-Interface --> Usuario: Verdadero
-deactivate Interface
+Alumno --> Usuario: Verdadero
+deactivate Alumno
 
 @enduml

@@ -2,37 +2,18 @@
 actor Usuario
 
 
-Usuario -> Interface: buscarHabitacion()
-activate Interface
-database Servidor
-Interface -> Servidor: buscarHabitacion()
-activate Servidor
+Usuario -> Habitacion: consulta()
+activate Habitacion
+Habitacion -> Usuario: Arreglo Habitaciones
+deactivate Habitacion
 
-Servidor --> Interface: String - Habitacion
-deactivate Servidor
-Interface --> Usuario: String - Habitacion
-deactivate Interface
+Usuario -> Alumno: consulta()
+activate Alumno
+Alumno -> Usuario: Arreglo Alumnos
 
+Usuario -> Alumno: asignarHabitacion()
 
-Usuario -> Interface: buscarAlumno()
-activate Interface
+Alumno -> Usuario: Verdadero
+deactivate Alumno
 
-Interface -> Servidor: buscarAlumno()
-activate Servidor
-
-Servidor --> Interface: String - Nombre Alumno
-deactivate Servidor
-Interface --> Usuario: String - Nombre Alumno
-deactivate Interface
-
-
-Usuario -> Interface: asignarHabitacion()
-activate Interface
-
-Interface -> Servidor: asignarHabitacion()
-activate Servidor
-
-Servidor --> Interface: Verdadero
-
-Interface --> Usuario: Verdadero
 @enduml
